@@ -25,61 +25,62 @@ public class Parser {
         next = getNextCommand();
     }
 
-    public int commandType() {
-        if (current.subString(0, current.indexOf(" ") == "function")) {
-            return C_FUNCTION;
+    public CommandType commandType() {
+        if (current.substring(0, current.indexOf(" ")) == "function") {
+            return CommandType.C_FUNCTION;
         }
-        else if (current.subString(0, current.indexOf(" ") == "push")) {
-            return C_PUSH;
+        else if (current.substring(0, current.indexOf(" ")) == "push") {
+            return CommandType.C_PUSH;
         }
-        else if (current.subString(0, current.indexOf(" ") == "pop")) {
-            return C_POP;
+        else if (current.substring(0, current.indexOf(" ")) == "pop") {
+            return CommandType.C_POP;
         }
-        else if (current.subString(0, current.indexOf(" ") == "label")) {
-            return C_LABEL;
+        else if (current.substring(0, current.indexOf(" ")) == "label") {
+            return CommandType.C_LABEL;
         }
-        else if (current.subString(0, current.indexOf(" ") == "return")) {
-            return C_RETURN;
+        else if (current.substring(0, current.indexOf(" ")) == "return") {
+            return CommandType.C_RETURN;
         }
-        else if (current.subString(0, current.indexOf(" ") == "call")) {
-            return C_CALL;
+        else if (current.substring(0, current.indexOf(" ")) == "call") {
+            return CommandType.C_CALL;
         }
-        else if (current.subString(0, current.indexOf(" ") == "goto")) {
-            return C_goto;
+        else if (current.substring(0, current.indexOf(" ")) == "goto") {
+            return CommandType.C_GOTO;
         }
-        else if (current.subString(0, current.indexOf(" ") == "if-goto")) {
-            return C_IF;
+        else if (current.substring(0, current.indexOf(" ")) == "if-goto") {
+            return CommandType.C_IF;
         }
         else {
-            return C_ARITHMETIC;
+            return CommandType.C_ARITHMETIC;
         }
     }
             
                 
     public String arg1() {
-        if (commandType() == C_ARITHMETIC) {
-            return current
+        if (commandType() == CommandType.C_ARITHMETIC) {
+            return current;
         }
-        else if (commandType() == C_RETURN) {
+        else if (commandType() == CommandType.C_RETURN) {
             return null;
         }
         else {
             int i = current.indexOf(" ");
             int j = current.indexOf(" ", i);
-            return current.subString(i++, j);
+            return current.substring(i++, j);
         }
     }
 
     // possibly need to fix later
     public int arg2() {
-        if (commandType() == C_POP || commandType() == C_PUSH || commandType() == C_FUNCTION || commandType() == C_CALL) {
+        if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
+				commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
             int i = current.indexOf(" ");
             int j = current.indexOf(" ", i);
             int k = current.indexOf(" ", j);
-            return current.subString(j++, k);
+            return Integer.getInteger(current.substring(j++, k));
         }
         else {
-            return null;
+            return -1;
         }
     }
 
