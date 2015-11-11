@@ -26,28 +26,29 @@ public class Parser {
     }
 
     public CommandType commandType() {
-        if (current.substring(0, current.indexOf(" ")) == "function") {
+        String com = current.substring(0, current.indexOf(" "));
+        if (com == "function") {
             return CommandType.C_FUNCTION;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "push") {
+        else if (com == "push") {
             return CommandType.C_PUSH;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "pop") {
+        else if (com == "pop") {
             return CommandType.C_POP;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "label") {
+        else if (com == "label") {
             return CommandType.C_LABEL;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "return") {
+        else if (com == "return") {
             return CommandType.C_RETURN;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "call") {
+        else if (com == "call") {
             return CommandType.C_CALL;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "goto") {
+        else if (com == "goto") {
             return CommandType.C_GOTO;
         }
-        else if (current.substring(0, current.indexOf(" ")) == "if-goto") {
+        else if (com == "if-goto") {
             return CommandType.C_IF;
         }
         else {
@@ -73,7 +74,7 @@ public class Parser {
     // possibly need to fix later
     public int arg2() {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
-				commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
+              commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
             int i = current.indexOf(" ");
             int j = current.indexOf(" ", i);
             int k = current.indexOf(" ", j);
