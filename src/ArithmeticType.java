@@ -18,42 +18,20 @@ public class ArithmeticType {
                     "D=M\n" +
                     "A=A-1\n" +
                     "M=D|M\n";
-    static String EQ =
-            "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
-                    "A=A-1\n" +
-                    "M=D|M\n";
     static String AND =
             "@SP\n" +
                     "AM=M-1\n" +
                     "D=M\n" +
                     "A=A-1\n" +
                     "M=D&M\n";
-    static String LT =
-            "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
-                    "A=A-1\n" +
-                    "M=D|M\n";
-    static String GT =
-            "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
-                    "A=A-1\n" +
-                    "M=D|M\n";
     static String NEG =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
-                    "A=A-1\n" +
-                    "M=D|M\n";
+                    "A=M-1\n" +
+                    "M=-M\n";
     static String NOT =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
-                    "A=A-1\n" +
-                    "M=D|M\n";
+                    "A=M-1\n" +
+                    "M=!M\n";
     static String OR =
             "@SP\n" +
                     "AM=M-1\n" +
