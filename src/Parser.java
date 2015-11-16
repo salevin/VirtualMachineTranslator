@@ -71,7 +71,6 @@ public class Parser {
         }
     }
 
-    // possibly need to fix later
     public int arg2() {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
               commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {

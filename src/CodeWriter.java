@@ -45,7 +45,7 @@ public class CodeWriter {
                 break;
             }
             case "eq": {
-                writeCode(ArithmeticType.EQ);
+                writeCode(ArithmeticType.EQ());
                 break;
             }
             case "and": {
@@ -53,11 +53,11 @@ public class CodeWriter {
                 break;
             }
             case "lt": {
-                writeCode(ArithmeticType.LT);
+                writeCode(ArithmeticType.LT());
                 break;
             }
             case "gt": {
-                writeCode(ArithmeticType.GT);
+                writeCode(ArithmeticType.GT());
                 break;
             }
             case "neg": {
