@@ -76,7 +76,46 @@ public class CodeWriter {
 	}
 
     public void WritePushPop(String command, String segment, Integer index){
+        Sting asm = "";
+        
+        if (command == CommandType.C_PUSH) {
+            if (segment == "constant") {
+                return
+                    "@"segment"\n" +
+                    "D=A\n" +
+                    "@"Integer.toString(index)"\n" +
+                    "M=D\n";
+            }
+            else if (segment == "local") {
+                    "@"segment"\n" +
+                    "D=A\n" +
+                    "@"Integer.toString(index)"\n" +
+                    "M=D\n";
+            }
+            else if (segment == "argument") {
 
+            }
+            else {
+                System.out.println("Error in WritePushPop segment string");
+            }
+
+            // return
+            //     "@42\n" +
+            //     "D=A\n" +
+            //     "@24\n" +
+            //     "M=D\n";
+        }
+        else if (command == CommandType.C_POP) {
+            // return
+            //     "@42\n" +
+            //     "D=A\n" +
+            //     "@24\n" +
+            //     "M=D\n";
+        }
+        else {
+            System.out.println("Error in WritePushPop");
+            return null;
+        }
     }
 
 	public void close() {
