@@ -71,38 +71,70 @@ public class CodeWriter {
             case "or": {
                 writeCode(ArithmeticType.OR);
                 break;
+            }default: {
+                System.out.println("Error in arithmetic segment string");
             }
         }
 	}
 
     public void WritePushPop(CommandType command, String segment, Integer index){
-        String asm = "";
-        
         if (command == CommandType.C_PUSH) {
-            if (segment == "constant") {
-                writeCode(PushWriter.CONSTANT(index));
-            }
-            else if (segment == "local") {
-            }
-            else if (segment == "argument") {
+            switch (segment) {
+                case "constant": {
+                    writeCode(PushWriter.CONSTANT(index));
+                }
+                case "local": {
+                    writeCode(PushWriter.LOCAL(index));
+                }
+                case "argument": {
+                    writeCode(PushWriter.ARGUMENT(index));
+                }
+                case "this": {
+                    writeCode(PushWriter.THIS(index));
+                }
+                case "that": {
+                    writeCode(PushWriter.THAT(index));
+                }
+                case "temp": {
+                    writeCode(PushWriter.TEMP(index));
+                }
+                case "pointer": {
+                    writeCode(PushWriter.POINTER(index));
+                }
+                default: {
+                    System.out.println("Error in Push segment string");
+                }
 
             }
-            else {
-                System.out.println("Error in WritePushPop segment string");
-            }
-
-            // return
-            //     "@42\n" +
-            //     "D=A\n" +
-            //     "@24\n" +
-            //     "M=D\n";
         }
         else if (command == CommandType.C_POP) {
-            // return
-            //     "@42\n" +
-            //     "D=A\n" +
-            //     "@24\n" +
-            //     "M=D\n";
+            switch (segment) {
+                case "constant": {
+                    writeCode(PopWriter.CONSTANT(index));
+                }
+                case "local": {
+                    writeCode(PopWriter.LOCAL(index));
+                }
+                case "argument": {
+                    writeCode(PopWriter.ARGUMENT(index));
+                }
+                case "this": {
+                    writeCode(PopWriter.THIS(index));
+                }
+                case "that": {
+                    writeCode(PopWriter.THAT(index));
+                }
+                case "temp": {
+                    writeCode(PopWriter.TEMP(index));
+                }
+                case "pointer": {
+                    writeCode(PopWriter.POINTER(index));
+                }
+                default: {
+                    System.out.println("Error in Pop segment string");
+                }
+
+            }
         }
         else {
             System.out.println("Error in WritePushPop");
