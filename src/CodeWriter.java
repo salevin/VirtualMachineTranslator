@@ -75,22 +75,14 @@ public class CodeWriter {
         }
 	}
 
-    public void WritePushPop(String command, String segment, Integer index){
-        Sting asm = "";
+    public void WritePushPop(CommandType command, String segment, Integer index){
+        String asm = "";
         
         if (command == CommandType.C_PUSH) {
             if (segment == "constant") {
-                return
-                    "@"segment"\n" +
-                    "D=A\n" +
-                    "@"Integer.toString(index)"\n" +
-                    "M=D\n";
+                writeCode(PushWriter.CONSTANT(index));
             }
             else if (segment == "local") {
-                    "@"segment"\n" +
-                    "D=A\n" +
-                    "@"Integer.toString(index)"\n" +
-                    "M=D\n";
             }
             else if (segment == "argument") {
 
@@ -114,7 +106,6 @@ public class CodeWriter {
         }
         else {
             System.out.println("Error in WritePushPop");
-            return null;
         }
     }
 
