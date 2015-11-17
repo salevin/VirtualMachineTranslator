@@ -73,12 +73,11 @@ public class Parser {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
               commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
             System.out.println(current);
-            int i = current.indexOf(" ");
-            int j = current.indexOf(" ", i);
-            int k = current.indexOf(" ", j);
-            System.out.println(i + " " + j + " " + k);
-            System.out.println(Integer.getInteger(current.substring(j, current.length())));
-            return Integer.getInteger(current.substring(j, current.length()));
+            int i = current.indexOf(" ") + 1;
+            int j = current.indexOf(" ", i) + 1;
+            System.out.println(i + " " + j + " ");
+            String sub = current.substring(j);
+            return Integer.parseInt(sub);
         }
         else {
             return -1;
