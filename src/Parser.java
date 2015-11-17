@@ -27,9 +27,9 @@ public class Parser {
 
     public CommandType commandType() {
         String com;
-        if (current.contains(" "))
+        if (current.indexOf(" ") != -1)
             com = current.substring(0, current.indexOf(" "));
-        else
+        else 
             com = current;
 
         switch(com) {

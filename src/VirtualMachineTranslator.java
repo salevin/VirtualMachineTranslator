@@ -34,17 +34,18 @@ public class VirtualMachineTranslator {
             new VirtualMachineTranslator().translate(args[0]);
         else {   // Pop-up a JFileChooser.
             SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    UIManager.put("swing.boldMetal", Boolean.FALSE);
-                    JFileChooser fc = new JFileChooser();
-                    fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
-                    fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-                    if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-                        new VirtualMachineTranslator().translate(fc.getSelectedFile().getPath());
-                    else
-                        System.out.println("No file selected; terminating.");
-                }
-            });
+                    public void run() {
+                        UIManager.put("swing.boldMetal", Boolean.FALSE);
+                        JFileChooser fc = new JFileChooser();
+                        fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
+                        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+                        fc.setCurrentDirectory(new java.io.File("/home/oggz/documents/school/fall-2015/cs220/sim/nand2tetris/projects/07/"));
+                        if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+                            new VirtualMachineTranslator().translate(fc.getSelectedFile().getPath());
+                        else
+                            System.out.println("No file selected; terminating.");
+                    }
+                });
         }
     }
 >>>>>>> b8360507873498df4fde7aec31eea302e06f1fda
