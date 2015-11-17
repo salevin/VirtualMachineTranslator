@@ -3,6 +3,7 @@ Simple vm translator
 
 By Samuel Levin, Alex Doccolo, John Sturgis
 
+<pre>
 quu..__
  $$$b  `---.__
   "$$b        `--.                          ___.---uuudP
@@ -41,3 +42,4 @@ quu..__
                |   .:::------------\       /
               /   .''               >::'  /
               `',:                 :    .'
+<pre>
