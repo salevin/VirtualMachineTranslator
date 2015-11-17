@@ -27,9 +27,9 @@ public class Parser {
 
     public CommandType commandType() {
         String com;
-        if (current.indexOf(" ") != -1)
+        if (current.contains(" "))
             com = current.substring(0, current.indexOf(" "));
-        else 
+        else
             com = current;
 
         if (com == "function") {
