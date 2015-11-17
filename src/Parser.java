@@ -63,9 +63,11 @@ public class Parser {
             return null;
         }
         else {
-            int i = current.indexOf(" ");
-            int j = current.indexOf(" ", i);
-            return current.substring(i++, j);
+            int i = current.indexOf(" ") + 1;
+            int j = current.indexOf(" ", i) + 1;
+            String sub = current.substring(i, j-1);
+            System.out.println("foo: " + sub + "|");
+            return sub;
         }
     }
 
