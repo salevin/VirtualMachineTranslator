@@ -27,37 +27,30 @@ public class Parser {
 
     public CommandType commandType() {
         String com;
-        if (current.indexOf(" ") != -1)
+        if (current.contains(" "))
             com = current.substring(0, current.indexOf(" "));
         else 
             com = current;
 
-        if (com == "function") {
-            return CommandType.C_FUNCTION;
-        }
-        else if (com == "push") {
-            return CommandType.C_PUSH;
-        }
-        else if (com == "pop") {
-            return CommandType.C_POP;
-        }
-        else if (com == "label") {
-            return CommandType.C_LABEL;
-        }
-        else if (com == "return") {
-            return CommandType.C_RETURN;
-        }
-        else if (com == "call") {
-            return CommandType.C_CALL;
-        }
-        else if (com == "goto") {
-            return CommandType.C_GOTO;
-        }
-        else if (com == "if-goto") {
-            return CommandType.C_IF;
-        }
-        else {
-            return CommandType.C_ARITHMETIC;
+        switch(com) {
+            case "function":
+                return CommandType.C_FUNCTION;
+            case "push":
+                return CommandType.C_PUSH;
+            case "pop":
+                return CommandType.C_POP;
+            case "label":
+                return CommandType.C_LABEL;
+            case "return":
+                return CommandType.C_RETURN;
+            case "call":
+                return CommandType.C_CALL;
+            case "goto":
+                return CommandType.C_GOTO;
+            case "if-goto":
+                return CommandType.C_IF;
+            default:
+                return CommandType.C_ARITHMETIC;
         }
     }
             

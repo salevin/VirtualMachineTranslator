@@ -35,6 +35,7 @@ public class CodeWriter {
 	}
 
 	public void writeArithmetic(String command){
+            // System.out.println(command);
         switch (command) {
             case "add": {
                 writeCode(ArithmeticType.ADD);
