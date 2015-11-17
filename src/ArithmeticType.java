@@ -7,37 +7,79 @@ public class ArithmeticType {
 
     static String ADD =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
+                    "A=M\n" +
                     "A=A-1\n" +
-                    "M=D+M\n";
+                    "A=A-1\n" +
+                    "D=M\n" +
+                    "A=A+1\n" +
+                    "D=D+M\n" +
+                    "@SP\n" +
+                    "M=M-1\n" +
+                    "M=M-1\n" +
+                    "A=Mv" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
 
     static String SUB =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
+                    "A=M\n" +
                     "A=A-1\n" +
-                    "M=D|M\n";
+                    "A=A-1\n" +
+                    "D=M\n" +
+                    "A=A+1\n" +
+                    "D=D-M\n" +
+                    "@SP\n" +
+                    "M=M-1\n" +
+                    "M=M-1\n" +
+                    "A=M\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
     static String AND =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
+                    "A=M\n" +
                     "A=A-1\n" +
-                    "M=D&M\n";
+                    "A=A-1\n" +
+                    "D=M\n" +
+                    "A=A+1\n" +
+                    "D=D&M\n" +
+                    "@SP\n" +
+                    "M=M-1\n" +
+                    "M=M-1\n" +
+                    "A=M\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
     static String NEG =
             "@SP\n" +
-                    "A=M-1\n" +
-                    "M=-M\n";
+                    "M=M-1\n" +
+                    "A=M\n" +
+                    "M=-M\n" +
+                    "@SP\n" +
+                    "M=M+1";
     static String NOT =
             "@SP\n" +
-                    "A=M-1\n" +
-                    "M=!M\n";
+                    "M=M-1\n" +
+                    "A=M\n" +
+                    "M=!M\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
     static String OR =
             "@SP\n" +
-                    "AM=M-1\n" +
-                    "D=M\n" +
+                    "A=M\n" +
                     "A=A-1\n" +
-                    "M=D|M\n";
+                    "A=A-1\n" +
+                    "D=M\n" +
+                    "A=A+1\n" +
+                    "D=D|M\n" +
+                    "@SP\n" +
+                    "M=M-1\n" +
+                    "M=M-1\n" +
+                    "A=M\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
 
     public static String EQ() {
         counter++;

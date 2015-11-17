@@ -110,7 +110,7 @@ public class CodeWriter {
                     break;
                 }
                 default: {
-                    System.out.println("Error in Push segment string");
+                        System.out.println("Error in Push segment string");
                     break;
                 }
 

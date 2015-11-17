@@ -6,9 +6,9 @@ public class PushWriter {
         return "@" + index + "\n" +
                 "D=A\n" +
                 "@SP\n" +
-                "M=D\n" +
-                "@SP\n" +
-                "M=M+1\n";
+                "AM=M+1\n" +
+                "A=A-1\n" +
+                "M=D\n";
     }
 
     public static String ARGUMENT(Integer index) {
