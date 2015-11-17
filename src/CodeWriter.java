@@ -83,27 +83,35 @@ public class CodeWriter {
             switch (segment) {
                 case "constant": {
                     writeCode(PushWriter.CONSTANT(index));
+                    break;
                 }
                 case "local": {
                     writeCode(PushWriter.LOCAL(index));
+                    break;
                 }
                 case "argument": {
                     writeCode(PushWriter.ARGUMENT(index));
+                    break;
                 }
                 case "this": {
                     writeCode(PushWriter.THIS(index));
+                    break;
                 }
                 case "that": {
                     writeCode(PushWriter.THAT(index));
+                    break;
                 }
                 case "temp": {
                     writeCode(PushWriter.TEMP(index));
+                    break;
                 }
                 case "pointer": {
                     writeCode(PushWriter.POINTER());
+                    break;
                 }
                 default: {
                     System.out.println("Error in Push segment string");
+                    break;
                 }
 
             }
@@ -112,24 +120,31 @@ public class CodeWriter {
             switch (segment) {
                 case "local": {
                     writeCode(PopWriter.LOCAL(index));
+                    break;
                 }
                 case "argument": {
                     writeCode(PopWriter.ARGUMENT(index));
+                    break;
                 }
                 case "this": {
                     writeCode(PopWriter.THIS(index));
+                    break;
                 }
                 case "that": {
                     writeCode(PopWriter.THAT(index));
+                    break;
                 }
                 case "temp": {
                     writeCode(PopWriter.TEMP(index));
+                    break;
                 }
                 case "pointer": {
                     writeCode(PopWriter.POINTER());
+                    break;
                 }
                 default: {
                     System.out.println("Error in Pop segment string");
+                    break;
                 }
 
             }

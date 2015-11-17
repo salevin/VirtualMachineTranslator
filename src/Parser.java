@@ -79,6 +79,7 @@ public class Parser {
             return Integer.parseInt(sub);
         }
         else {
+            System.out.println("Error in arg2");
             return -1;
         }
     }
