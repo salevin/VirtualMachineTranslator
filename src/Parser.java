@@ -66,7 +66,6 @@ public class Parser {
             int i = current.indexOf(" ") + 1;
             int j = current.indexOf(" ", i) + 1;
             String sub = current.substring(i, j-1);
-            System.out.println("foo: " + sub + "|");
             return sub;
         }
     }
@@ -74,10 +73,8 @@ public class Parser {
     public int arg2() {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
               commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
-            System.out.println(current);
             int i = current.indexOf(" ") + 1;
             int j = current.indexOf(" ", i) + 1;
-            System.out.println(i + " " + j + " ");
             String sub = current.substring(j);
             return Integer.parseInt(sub);
         }
