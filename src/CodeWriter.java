@@ -99,7 +99,7 @@ public class CodeWriter {
                     writeCode(PushWriter.TEMP(index));
                 }
                 case "pointer": {
-                    writeCode(PushWriter.POINTER(index));
+                    writeCode(PushWriter.POINTER());
                 }
                 default: {
                     System.out.println("Error in Push segment string");
@@ -109,9 +109,6 @@ public class CodeWriter {
         }
         else if (command == CommandType.C_POP) {
             switch (segment) {
-                case "constant": {
-                    writeCode(PopWriter.CONSTANT(index));
-                }
                 case "local": {
                     writeCode(PopWriter.LOCAL(index));
                 }
@@ -128,7 +125,7 @@ public class CodeWriter {
                     writeCode(PopWriter.TEMP(index));
                 }
                 case "pointer": {
-                    writeCode(PopWriter.POINTER(index));
+                    writeCode(PopWriter.POINTER());
                 }
                 default: {
                     System.out.println("Error in Pop segment string");

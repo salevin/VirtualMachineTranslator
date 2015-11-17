@@ -2,46 +2,84 @@
  * Created by sam on 11/16/15.
  */
 public class PopWriter {
-    public static String CONSTANT(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
-                "M=D\n";
-    }
     public static String ARGUMENT(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+        return "@ARG\n" +
+                "D=M\n" +
+                "@" + index + "\n" +
+                "D=D+A\n" +
+                "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
     public static String THIS(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+        return "@THIS\n" +
+                "D=M\n" +
+                "@" + index + "\n" +
+                "D=D+A\n" +
+                "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
     public static String THAT(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+        return "@THAT\n" +
+                "D=M\n" +
+                "@" + index + "\n" +
+                "D=D+A\n" +
+                "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
     public static String LOCAL(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+        return "@LCL\n" +
+                "D=M\n" +
+                "@" + index + "\n" +
+                "D=D+A\n" +
+                "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
-    public static String POINTER(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+    public static String POINTER(){
+        return "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
     public static String TEMP(Integer index){
-        return "@constant\n" +
-                "D=A\n" +
-                "@"+ Integer.toString(index) + "\n" +
+        return "@R5\n" +
+                "D=M\n" +
+                "@" + index + "\n" +
+                "D=D+A\n" +
+                "@R13\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@R13\n" +
+                "A=M\n" +
                 "M=D\n";
     }
 }
