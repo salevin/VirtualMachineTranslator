@@ -26,7 +26,12 @@ public class Parser {
     }
 
     public CommandType commandType() {
-        String com = current.substring(0, current.indexOf(" "));
+        String com;
+        if (current.indexOf(" ") != -1)
+            com = current.substring(0, current.indexOf(" "));
+        else 
+            com = current;
+
         if (com == "function") {
             return CommandType.C_FUNCTION;
         }
