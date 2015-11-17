@@ -29,7 +29,7 @@ public class Parser {
         String com;
         if (current.contains(" "))
             com = current.substring(0, current.indexOf(" "));
-        else 
+        else
             com = current;
 
         switch(com) {
