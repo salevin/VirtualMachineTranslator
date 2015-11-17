@@ -41,7 +41,6 @@ public class ArithmeticType {
 
     public static String EQ() {
         counter++;
-
         return
                 "@SP\n" +
                         "AM=M-1\n" +
@@ -64,7 +63,6 @@ public class ArithmeticType {
 
     public static String GT() {
         counter++;
-
         return
                 "@SP \n" +
                         "AM=M-1 \n" +

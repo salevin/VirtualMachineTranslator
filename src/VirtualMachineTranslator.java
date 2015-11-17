@@ -65,26 +65,26 @@ public class VirtualMachineTranslator {
 				// to ASM code here.
                                 
                                 switch(parser.commandType()) {
-                                case CommandType.C_ARITHMETIC:
-                                    codeWriter.writeArithmetic(parser.arg1);
+                                case C_ARITHMETIC:
+                                    codeWriter.writeArithmetic(parser.arg1());
                                     break;
-                                case CommandType.C_POP:
+                                case C_POP:
                                     codeWriter.WritePushPop(CommandType.C_POP, parser.arg1(), parser.arg2());
                                     break;
-                                case CommandType.C_PUSH:
+                                case C_PUSH:
                                     codeWriter.WritePushPop(CommandType.C_PUSH, parser.arg1(), parser.arg2());
                                     break;
-                                case CommandType.C_LABEL:
+                                case C_LABEL:
                                     break;
-                                case CommandType.C_GOTO:
+                                case C_GOTO:
                                     break;
-                                case CommandType.C_IF:
+                                case C_IF:
                                     break;
-                                case CommandType.C_FUNCTION:
+                                case C_FUNCTION:
                                     break;
-                                case CommandType.C_RETURN:
+                                case C_RETURN:
                                     break;
-                                case CommandType.C_CALL:
+                                case C_CALL:
                                     break;
                                 }
 			}
