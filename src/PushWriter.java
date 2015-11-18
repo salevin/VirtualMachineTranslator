@@ -95,4 +95,14 @@ public class PushWriter {
                 "@SP\n" +
                 "M=M+1\n";
     }
+
+    public static String STATIC(Integer index) {
+        return "@" + index + "\n" +
+                "D=M\n" +
+                "@SP\n" +
+                "A=M\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "M=M+1\n";
+    }
 }

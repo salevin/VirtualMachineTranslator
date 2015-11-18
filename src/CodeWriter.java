@@ -109,6 +109,10 @@ public class CodeWriter {
                     writeCode(PushWriter.POINTER(index));
                     break;
                 }
+                case "static": {
+                    writeCode(PushWriter.STATIC(index));
+                    break;
+                }
                 default: {
                         System.out.println("Error in Push segment string");
                     break;
@@ -140,6 +144,10 @@ public class CodeWriter {
                 }
                 case "pointer": {
                     writeCode(PopWriter.POINTER(index));
+                    break;
+                }
+                case "static": {
+                    writeCode(PopWriter.STATIC(index));
                     break;
                 }
                 default: {
