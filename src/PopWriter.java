@@ -48,14 +48,15 @@ public class PopWriter {
     }
 
     public static String LOCAL(Integer index) {
-        return "@LCL\n" +
-                "D=M\n" +
-                "@" + index + "\n" +
-                "D=D+A\n" +
+        return "@" + index + "\n" +
+                "D=A\n" +
+                "@LCL\n" +
+                "D=D+M\n" +
                 "@R13\n" +
                 "M=D\n" +
                 "@SP\n" +
-                "AM=M-1\n" +
+                "M=M-1\n" +
+                "A=M\n" +
                 "D=M\n" +
                 "@R13\n" +
                 "A=M\n" +

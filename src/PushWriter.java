@@ -52,16 +52,17 @@ public class PushWriter {
     }
 
     public static String LOCAL(Integer index) {
-        return "@LCL\n" +
-                "D=M\n" +
-                "@" + index + "\n" +
-                "A=D+A\n" +
+        return "@" + index + "\n" +
+                "D=A\n" +
+                "@LCL\n" +
+                "A=D+M\n" +
                 "D=M\n" +
                 "@SP\n" +
                 "A=M\n" +
                 "M=D\n" +
+                "D=A+1\n" +
                 "@SP\n" +
-                "M=M+1\n";
+                "M=D\n";
     }
 
     public static String POINTER(Integer index) {
