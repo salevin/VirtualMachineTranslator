@@ -102,7 +102,7 @@ public class CodeWriter {
                     break;
                 }
                 case "temp": {
-                    writeCode(PushWriter.TEMP(index));
+                    writeCode(PushWriter.TEMP(index + 5));
                     break;
                 }
                 case "pointer": {
@@ -139,7 +139,7 @@ public class CodeWriter {
                     break;
                 }
                 case "temp": {
-                    writeCode(PopWriter.TEMP(index));
+                    writeCode(PopWriter.TEMP(index + 5));
                     break;
                 }
                 case "pointer": {
