@@ -16,7 +16,7 @@ public class PushWriter {
         return "@ARG\n" +
                 "D=M\n" +
                 "@" + index + "\n" +
-                "A=D+A" +
+                "A=D+A\n" +
                 "D=M\n" +
                 "@SP\n" +
                 "A=M\n" +
