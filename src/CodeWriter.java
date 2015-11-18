@@ -106,7 +106,7 @@ public class CodeWriter {
                     break;
                 }
                 case "pointer": {
-                    writeCode(PushWriter.POINTER());
+                    writeCode(PushWriter.POINTER(index));
                     break;
                 }
                 default: {

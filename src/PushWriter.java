@@ -64,12 +64,23 @@ public class PushWriter {
                 "M=M+1\n";
     }
 
-    public static String POINTER() {
-        return "@SP\n" +
-                "A=M\n" +
-                "M=D\n" +
-                "@SP\n" +
-                "M=M+1\n";
+    public static String POINTER(Integer index) {
+        if (index == 0)
+            return "@THIS \n" +
+                    "D=M \n" +
+                    "@SP\n" +
+                    "A=M\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
+        else
+            return "@THAT \n" +
+                    "D=M \n" +
+                    "@SP\n" +
+                    "A=M\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "M=M+1\n";
     }
 
     public static String TEMP(Integer index) {
