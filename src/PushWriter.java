@@ -6,8 +6,10 @@ public class PushWriter {
         return "@" + index + "\n" +
                 "D=A\n" +
                 "@SP\n" +
-                "AM=M+1\n" +
-                "A=A-1\n" +
+                "A=M\n" +
+                "M=D\n" +
+                "D=A+1\n" +
+                "@SP\n" +
                 "M=D\n";
     }
 
