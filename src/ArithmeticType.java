@@ -57,7 +57,7 @@ public class ArithmeticType {
                     "A=M\n" +
                     "M=-M\n" +
                     "@SP\n" +
-                    "M=M+1";
+                    "M=M+1\n";
     static String NOT =
             "@SP\n" +
                     "M=M-1\n" +
