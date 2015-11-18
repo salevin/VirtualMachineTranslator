@@ -16,7 +16,7 @@ public class ArithmeticType {
                     "@SP\n" +
                     "M=M-1\n" +
                     "M=M-1\n" +
-                    "A=Mv" +
+                    "A=M\n" +
                     "M=D\n" +
                     "@SP\n" +
                     "M=M+1\n";
