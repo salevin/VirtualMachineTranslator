@@ -139,7 +139,7 @@ public class CodeWriter {
                     break;
                 }
                 case "pointer": {
-                    writeCode(PopWriter.POINTER());
+                    writeCode(PopWriter.POINTER(index));
                     break;
                 }
                 default: {

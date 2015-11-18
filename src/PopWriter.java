@@ -62,15 +62,29 @@ public class PopWriter {
                 "M=D\n";
     }
 
-    public static String POINTER() {
-        return "@R13\n" +
-                "M=D\n" +
-                "@SP\n" +
-                "AM=M-1\n" +
-                "D=M\n" +
-                "@R13\n" +
-                "A=M\n" +
-                "M=D\n";
+    public static String POINTER(Integer index) {
+        if (index == 0)
+            return "@THIS \n" +
+                    "D=A \n" +
+                    "@R13\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "AM=M-1\n" +
+                    "D=M\n" +
+                    "@R13\n" +
+                    "A=M\n" +
+                    "M=D\n";
+        else
+            return "@THAT \n" +
+                    "D=A \n" +
+                    "@R13\n" +
+                    "M=D\n" +
+                    "@SP\n" +
+                    "AM=M-1\n" +
+                    "D=M\n" +
+                    "@R13\n" +
+                    "A=M\n" +
+                    "M=D\n";
     }
 
     public static String TEMP(Integer index) {
