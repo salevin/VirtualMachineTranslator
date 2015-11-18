@@ -85,16 +85,14 @@ public class PushWriter {
     }
 
     public static String TEMP(Integer index) {
-        return "@R5\n" +
-                "D=A\n" +
-                "@" + index + "\n" +
-                "A=D+A\n" +
+        return "@" + index + "\n" +
                 "D=M\n" +
                 "@SP\n" +
                 "A=M\n" +
                 "M=D\n" +
+                "D=A+1\n" +
                 "@SP\n" +
-                "M=M+1\n";
+                "M=D\n";
     }
 
     public static String STATIC(Integer index) {

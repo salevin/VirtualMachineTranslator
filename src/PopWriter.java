@@ -89,17 +89,11 @@ public class PopWriter {
     }
 
     public static String TEMP(Integer index) {
-        return "@R5\n" +
+        return "@SP\n" +
+                "M=M-1\n" +
+                "A=M\n" +
                 "D=M\n" +
                 "@" + index + "\n" +
-                "D=D+A\n" +
-                "@R13\n" +
-                "M=D\n" +
-                "@SP\n" +
-                "AM=M-1\n" +
-                "D=M\n" +
-                "@R13\n" +
-                "A=M\n" +
                 "M=D\n";
     }
 
