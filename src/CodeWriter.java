@@ -1,3 +1,4 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -33,6 +34,35 @@ public class CodeWriter {
 			System.exit(1);
 		}
 	}
+
+    public void writeInit(){
+//        TODO create method
+    }
+
+    public void writeLabel(String label){
+//        TODO create method
+    }
+
+    public void writeGoTo(String label){
+//        TODO create method
+    }
+
+    public void writeIf(String label){
+//        TODO create method
+    }
+
+    public void writeCall(String functionName, Integer numArgs){
+//        TODO create method
+    }
+
+    public void writeReturn(){
+//        TODO create method
+    }
+
+    public void writeFunction(String functionName, Integer numLocals){
+//        TODO create method
+    }
+
 
 	public void writeArithmetic(String command){
             // System.out.println(command);
