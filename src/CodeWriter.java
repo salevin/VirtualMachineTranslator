@@ -36,23 +36,26 @@ public class CodeWriter {
 	}
 
     public void writeInit(){
-//        TODO create method
+        writeCode("SP=256\n" +
+                  "call Sys.init\n");
     }
 
     public void writeLabel(String label){
-//        TODO create method
+        writeCode("(" + label + ")\n");
     }
 
     public void writeGoTo(String label){
-//        TODO create method
+        writeCode("@" + label + "\n" +
+                  "0;JMP\n");
     }
 
     public void writeIf(String label){
-//        TODO create method
+        writeCode("@" + label + "\n" +
+                  "M;JMP\n");
     }
 
     public void writeCall(String functionName, Integer numArgs){
-//        TODO create method
+        writeCode("\n");
     }
 
     public void writeReturn(){

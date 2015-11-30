@@ -23,3 +23,15 @@ By Samuel Levin, Alex Doccolo, John Sturgis
 /_==__==========__==_ooo__ooo=_/'   /___________,"
 `-----------------------------'
 </pre>
+
+
+<pre>
+(LABEL) <-
+|        |
+|        |
+|        |
+|        |
+V        |
+@LABEL   |
+0;JMP   <-
+</pre>
