@@ -7,6 +7,7 @@ public class CodeWriter {
 	private FileWriter asmFile;
 	private String fileName = "";
 	private String functionName = "";
+    private int incr = 0;
 
 	public CodeWriter(String basename) {
 		try {  // Open the ASM file for writing.
@@ -55,11 +56,19 @@ public class CodeWriter {
     }
 
     public void writeCall(String functionName, Integer numArgs){
+        String label = "l" + incr;
+        codeWriter.WritePushPop(CommandType.C_PUSH, fun, label);
+        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
+        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
+        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
+        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
         writeCode("\n");
+        codeWriter.writeLabel(label);
+        incr++;
     }
 
     public void writeReturn(){
-//        TODO create method
+        
     }
 
     public void writeFunction(String functionName, Integer numLocals){
