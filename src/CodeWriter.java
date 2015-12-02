@@ -55,15 +55,25 @@ public class CodeWriter {
                   "M;JMP\n");
     }
 
+    // TODO: finish pushing label
     public void writeCall(String functionName, Integer numArgs){
         String label = "l" + incr;
-        codeWriter.WritePushPop(CommandType.C_PUSH, fun, label);
-        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
-        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
-        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
-        codeWriter.WritePushPop(CommandType.C_PUSH, fun, );
-        writeCode("\n");
-        codeWriter.writeLabel(label);
+        String push = "";
+        String res;
+        res +=
+            "@" + label +
+            "D=A" +
+            "@" +
+            "D=D+A" +
+            "D=M" +
+            "D=M" +;
+        res += PushWriter.LOCAL(index);
+        res += PushWriter.ARG(index);
+        res += PushWriter.THIS(index);
+        res += PushWriter.THAT(index);
+        res += ""
+        writeCode(res + "\n");
+        writeLabel(label);
         incr++;
     }
 
