@@ -59,20 +59,24 @@ public class CodeWriter {
     public void writeCall(String functionName, Integer numArgs){
         String label = "l" + incr;
         String push = "";
-        String res;
-        res +=
-            "@" + label +
-            "D=A" +
-            "@" +
-            "D=D+A" +
-            "D=M" +
-            "D=M" +;
-        res += PushWriter.LOCAL(index);
-        res += PushWriter.ARG(index);
-        res += PushWriter.THIS(index);
-        res += PushWriter.THAT(index);
-        res += ""
-        writeCode(res + "\n");
+        String ret_addr, lcl, arg, ths, tht;
+        ret_addr =
+            "@" + label + "\n" +
+            "D=A\n" +
+            "@SP\n" +
+            "A=M\n" +
+            "M=D\n" +
+            "@SP\n" +
+            "M=M+1\n";
+        lcl =
+            "@" + label + "\n" +
+            "D=A\n" +
+            "@SP\n" +
+            "A=M\n" +
+            "M=D\n" +
+            "@SP\n" +
+            "M=M+1\n";
+        writeCode(res);
         writeLabel(label);
         incr++;
     }
