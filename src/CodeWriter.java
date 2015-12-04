@@ -96,8 +96,18 @@ public class CodeWriter {
             "A=A-1\n" +
             "M=D\n";
         misc =
-            
-        writeCode(res);
+            "@SP\n" +
+            "D=A\n" +
+            "@" + (numArgs + 5) + "\n" +
+            "D=D-A\n" +
+            "@ARG\n" +
+            "M=D\n" +
+            "@SP\n" +
+            "D=A\n" +
+            "@LCL\n" +
+            "M=D\n" +
+        writeCode(ret_addr + lcl + arg + ths + tht + misc);
+        writeGoTo(functionName)
         writeLabel(label);
         incr++;
     }
