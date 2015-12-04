@@ -4,87 +4,78 @@ import java.io.IOException;
 
 public class CodeWriter {
 
-	private FileWriter asmFile;
-	private String fileName = "";
-	private String functionName = "";
+    private FileWriter asmFile;
+    private String fileName = "";
+    private String functionName = "";
     private int incr = 0;
 
-	public CodeWriter(String basename) {
-		try {  // Open the ASM file for writing.
-			asmFile = new FileWriter(basename + ".asm");
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-		functionName = "";
-	}
-
-	// You might find this useful.
-	// Write a sequence of ASM code to the ASM file.
-	// The parameter code is expected to contain all necessary newline
-	// characters.
-	private void writeCode(String code) {
-		try {
-			asmFile.write(code);
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
-	}
-
-    public void writeInit(){
-        writeCode("SP=256\n" +
-                  "call Sys.init\n");
+    public CodeWriter(String basename) {
+        try {  // Open the ASM file for writing.
+            asmFile = new FileWriter(basename + ".asm");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
-    public void writeLabel(String label){
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+        functionName = "";
+    }
+
+    // You might find this useful.
+    // Write a sequence of ASM code to the ASM file.
+    // The parameter code is expected to contain all necessary newline
+    // characters.
+    private void writeCode(String code) {
+        try {
+            asmFile.write(code);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+
+    public void writeInit() {
+        writeCode("SP=256\n" +
+                "call Sys.init\n");
+    }
+
+    public void writeLabel(String label) {
         writeCode("(" + label + ")\n");
     }
 
-    public void writeGoTo(String label){
+    public void writeGoTo(String label) {
         writeCode("@" + label + "\n" +
-                  "0;JMP\n");
+                "0;JMP\n");
     }
 
-    public void writeIf(String label){
+    public void writeIf(String label) {
         writeCode("@" + label + "\n" +
-                  "M;JMP\n");
+                "M;JMP\n");
     }
 
-    public void writeCall(String functionName, Integer numArgs){
+    public void writeCall(String functionName, Integer numArgs) {
         String label = "l" + incr;
-        String misc =
-            "@SP\n" +
-            "D=A\n" +
-            "@" + (numArgs + 5) + "\n" +
-            "D=D-A\n" +
-            "@ARG\n" +
-            "M=D\n" +
-            "@SP\n" +
-            "D=A\n" +
-            "@LCL\n" +
-            "M=D\n";
-        writeCode(CallWriter.RET_ADDR(label) + CallWriter.LCL + CallWriter.ARG + CallWriter.THS + CallWriter.THT + misc);
+        writeCode(CallWriter.RET_ADDR(label) + CallWriter.LCL +
+                CallWriter.ARG + CallWriter.THS + CallWriter.THT
+                + CallWriter.MISC(numArgs));
         writeGoTo(functionName);
         writeLabel(label);
         incr++;
     }
 
-    public void writeReturn(){
-        
+    public void writeReturn() {
+
     }
 
-    public void writeFunction(String functionName, Integer numLocals){
+    public void writeFunction(String functionName, Integer numLocals) {
 //        TODO create method
     }
 
 
-	public void writeArithmetic(String command){
-            // System.out.println(command);
+    public void writeArithmetic(String command) {
+        // System.out.println(command);
         switch (command) {
             case "add": {
                 writeCode(ArithmeticType.ADD);
@@ -121,13 +112,14 @@ public class CodeWriter {
             case "or": {
                 writeCode(ArithmeticType.OR);
                 break;
-            }default: {
+            }
+            default: {
                 System.out.println("Error in arithmetic segment string");
             }
         }
-	}
+    }
 
-    public void WritePushPop(CommandType command, String segment, Integer index){
+    public void WritePushPop(CommandType command, String segment, Integer index) {
         if (command == CommandType.C_PUSH) {
             switch (segment) {
                 case "constant": {
@@ -163,13 +155,12 @@ public class CodeWriter {
                     break;
                 }
                 default: {
-                        System.out.println("Error in Push segment string");
+                    System.out.println("Error in Push segment string");
                     break;
                 }
 
             }
-        }
-        else if (command == CommandType.C_POP) {
+        } else if (command == CommandType.C_POP) {
             switch (segment) {
                 case "local": {
                     writeCode(PopWriter.LOCAL(index));
@@ -205,19 +196,18 @@ public class CodeWriter {
                 }
 
             }
-        }
-        else {
+        } else {
             System.out.println("Error in WritePushPop");
         }
     }
 
-	public void close() {
-		try {
-			asmFile.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
-	}
+    public void close() {
+        try {
+            asmFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
 
 }

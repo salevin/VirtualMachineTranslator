@@ -42,5 +42,17 @@ public class CallWriter {
                 "AM = M+1\n" +
                 "A=A-1\n" +
                 "M=D\n";
+    static String MISC(Integer numArgs) {
+        return "@SP\n" +
+                "D=A\n" +
+                "@" + (numArgs + 5) + "\n" +
+                "D=D-A\n" +
+                "@ARG\n" +
+                "M=D\n" +
+                "@SP\n" +
+                "D=A\n" +
+                "@LCL\n" +
+                "M=D\n";
+    }
 
 }
