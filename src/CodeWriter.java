@@ -57,9 +57,12 @@ public class CodeWriter {
 
     public void writeCall(String functionName, Integer numArgs) {
         String label = "l" + incr;
-        writeCode(CallWriter.RET_ADDR(label) + CallWriter.LCL +
-                CallWriter.ARG + CallWriter.THS + CallWriter.THT
-                + CallWriter.MISC(numArgs));
+        writeCode(CallWriter.RET_ADDR(label) +
+                  CallWriter.LCL +
+                  CallWriter.ARG +
+                  CallWriter.THS +
+                  CallWriter.THT +
+                  CallWriter.MISC(numArgs));
         writeGoTo(functionName);
         writeLabel(label);
         incr++;
