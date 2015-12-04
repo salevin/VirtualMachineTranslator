@@ -64,18 +64,39 @@ public class CodeWriter {
             "@" + label + "\n" +
             "D=A\n" +
             "@SP\n" +
-            "A=M\n" +
-            "M=D\n" +
-            "@SP\n" +
-            "M=M+1\n";
+            "AM = M+1\n" +
+            "A=A-1\n" +
+            "M=D\n";
         lcl =
-            "@" + label + "\n" +
+            "@LCL" +
             "D=A\n" +
             "@SP\n" +
-            "A=M\n" +
-            "M=D\n" +
+            "AM = M+1\n" +
+            "A=A-1\n" +
+            "M=D\n";
+        arg =
+            "@ARG" +
+            "D=A\n" +
             "@SP\n" +
-            "M=M+1\n";
+            "AM = M+1\n" +
+            "A=A-1\n" +
+            "M=D\n";
+        ths =
+            "@THIS" +
+            "D=A\n" +
+            "@SP\n" +
+            "AM = M+1\n" +
+            "A=A-1\n" +
+            "M=D\n";
+        tht =
+            "@THAT" +
+            "D=A\n" +
+            "@SP\n" +
+            "AM = M+1\n" +
+            "A=A-1\n" +
+            "M=D\n";
+        misc =
+            
         writeCode(res);
         writeLabel(label);
         incr++;
