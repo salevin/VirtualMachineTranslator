@@ -55,47 +55,9 @@ public class CodeWriter {
                   "M;JMP\n");
     }
 
-    // TODO: finish pushing label
     public void writeCall(String functionName, Integer numArgs){
         String label = "l" + incr;
-        String push = "";
-        String ret_addr, lcl, arg, ths, tht;
-        ret_addr =
-            "@" + label + "\n" +
-            "D=A\n" +
-            "@SP\n" +
-            "AM = M+1\n" +
-            "A=A-1\n" +
-            "M=D\n";
-        lcl =
-            "@LCL" +
-            "D=A\n" +
-            "@SP\n" +
-            "AM = M+1\n" +
-            "A=A-1\n" +
-            "M=D\n";
-        arg =
-            "@ARG" +
-            "D=A\n" +
-            "@SP\n" +
-            "AM = M+1\n" +
-            "A=A-1\n" +
-            "M=D\n";
-        ths =
-            "@THIS" +
-            "D=A\n" +
-            "@SP\n" +
-            "AM = M+1\n" +
-            "A=A-1\n" +
-            "M=D\n";
-        tht =
-            "@THAT" +
-            "D=A\n" +
-            "@SP\n" +
-            "AM = M+1\n" +
-            "A=A-1\n" +
-            "M=D\n";
-        misc =
+        String misc =
             "@SP\n" +
             "D=A\n" +
             "@" + (numArgs + 5) + "\n" +
@@ -105,9 +67,9 @@ public class CodeWriter {
             "@SP\n" +
             "D=A\n" +
             "@LCL\n" +
-            "M=D\n" +
-        writeCode(ret_addr + lcl + arg + ths + tht + misc);
-        writeGoTo(functionName)
+            "M=D\n";
+        writeCode(CallWriter.RET_ADDR(label) + CallWriter.LCL + CallWriter.ARG + CallWriter.THS + CallWriter.THT + misc);
+        writeGoTo(functionName);
         writeLabel(label);
         incr++;
     }
