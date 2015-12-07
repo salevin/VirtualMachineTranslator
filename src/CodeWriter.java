@@ -74,9 +74,15 @@ public class CodeWriter {
     }
 
     public void writeFunction(String functionName, Integer numLocals) {
-        // TODO create method
+        //problem area
+        writeLabel(functionName);
+        String accum = "";
+        for (int i = 0; i < numLocals; i++) {
+            writeCode("@SP\n" +
+                      "M=0\n" +
+                      "A=A+1\n");
+        }
     }
-
 
     public void writeArithmetic(String command) {
         // System.out.println(command);
