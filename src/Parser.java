@@ -63,21 +63,14 @@ public class Parser {
             return null;
         }
         else {
-            int i = current.indexOf(" ") + 1;
-            int j = current.indexOf(" ", i) + 1;
-            String sub = current.substring(i, j-1);
-            return sub;
+            return current.split("\\s+")[1];
         }
     }
 
     public int arg2() {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
               commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
-            
-            int i = current.indexOf(" ") + 1;
-            int j = current.indexOf(" ", i) + 1;
-            String sub = current.substring(j);
-            return Integer.parseInt(current.split(" ")[2]);
+            return Integer.parseInt(current.split("\\s+")[2]);
         }
         else {
             System.out.println("Error in arg2");
