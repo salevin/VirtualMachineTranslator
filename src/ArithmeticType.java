@@ -21,7 +21,7 @@ public class ArithmeticType {
                     "@SP\n" +
                     "M=M+1\n";
 
-    static String SUB =
+        static String SUB =
             "@SP\n" +
                     "A=M\n" +
                     "A=A-1\n" +

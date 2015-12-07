@@ -12,36 +12,37 @@ public class CallWriter {
     }
 
     static String LCL =
-        "@LCL" +
-                "D=A\n" +
-                "@SP\n" +
-                "AM = M+1\n" +
-                "A=A-1\n" +
-                "M=D\n";
+            "@LCL" +
+                    "D=A\n" +
+                    "@SP\n" +
+                    "AM = M+1\n" +
+                    "A=A-1\n" +
+                    "M=D\n";
 
     static String ARG =
-        "@ARG" +
-                "D=A\n" +
-                "@SP\n" +
-                "AM = M+1\n" +
-                "A=A-1\n" +
-                "M=D\n";
+            "@ARG" +
+                    "D=A\n" +
+                    "@SP\n" +
+                    "AM = M+1\n" +
+                    "A=A-1\n" +
+                    "M=D\n";
 
     static String THS =
             "@THIS" +
-                "D=A\n" +
-                "@SP\n" +
-                "AM = M+1\n" +
-                "A=A-1\n" +
-                "M=D\n";
+                    "D=A\n" +
+                    "@SP\n" +
+                    "AM = M+1\n" +
+                    "A=A-1\n" +
+                    "M=D\n";
 
     static String THT =
             "@THAT" +
-                "D=A\n" +
-                "@SP\n" +
-                "AM = M+1\n" +
-                "A=A-1\n" +
-                "M=D\n";
+                    "D=A\n" +
+                    "@SP\n" +
+                    "AM = M+1\n" +
+                    "A=A-1\n" +
+                    "M=D\n";
+
     static String MISC(Integer numArgs) {
         return "@SP\n" +
                 "D=A\n" +

@@ -13,18 +13,18 @@ public class VirtualMachineTranslator {
             new VirtualMachineTranslator().translate(args[0]);
         else {   // Pop-up a JFileChooser.
             SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-                        UIManager.put("swing.boldMetal", Boolean.FALSE);
-                        JFileChooser fc = new JFileChooser();
-                        fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
-                        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-                        fc.setCurrentDirectory(new java.io.File("."));
-                        if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-                            new VirtualMachineTranslator().translate(fc.getSelectedFile().getPath());
-                        else
-                            System.out.println("No file selected; terminating.");
-                    }
-                });
+                public void run() {
+                    UIManager.put("swing.boldMetal", Boolean.FALSE);
+                    JFileChooser fc = new JFileChooser();
+                    fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
+                    fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+                    fc.setCurrentDirectory(new java.io.File("."));
+                    if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+                        new VirtualMachineTranslator().translate(fc.getSelectedFile().getPath());
+                    else
+                        System.out.println("No file selected; terminating.");
+                }
+            });
         }
     }
 
