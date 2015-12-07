@@ -73,10 +73,11 @@ public class Parser {
     public int arg2() {
         if (commandType() == CommandType.C_POP || commandType() == CommandType.C_PUSH ||
               commandType() == CommandType.C_FUNCTION || commandType() == CommandType.C_CALL) {
+            
             int i = current.indexOf(" ") + 1;
             int j = current.indexOf(" ", i) + 1;
             String sub = current.substring(j);
-            return Integer.parseInt(sub.replaceAll("^\\s+", ""));
+            return Integer.parseInt(current.split(" ")[2]);
         }
         else {
             System.out.println("Error in arg2");
