@@ -81,7 +81,12 @@ public class CodeWriter {
             "@R15\n" +
             "A=D\n" +
             //pop shit
-            //TODO
+            "@SP\n" +
+            "AM=M-1\n" +
+            "D=M\n" +
+            "@ARG\n" +
+            "A=M\n" +
+            "M=D\n" +
             //sp
             "@ARG\n" +
             "D=M+1\n" +
@@ -117,7 +122,7 @@ public class CodeWriter {
     }
 
     public void writeFunction(String functionName, Integer numLocals) {
-//        TODO create method
+        // TODO create method
     }
 
 
