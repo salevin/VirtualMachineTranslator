@@ -76,7 +76,7 @@ public class Parser {
             int i = current.indexOf(" ") + 1;
             int j = current.indexOf(" ", i) + 1;
             String sub = current.substring(j);
-            return Integer.parseInt(sub);
+            return Integer.parseInt(sub.replaceAll("^\\s+", ""));
         }
         else {
             System.out.println("Error in arg2");
