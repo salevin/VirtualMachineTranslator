@@ -52,7 +52,7 @@ public class CodeWriter {
 
     public void writeIf(String label) {
         writeCode("@" + label + "\n" +
-                "M;JMP\n");
+                "M;JNE\n");
     }
 
     public void writeCall(String functionName, Integer numArgs) {
