@@ -9,11 +9,12 @@ public class ReturnWriter {
                     "A=D\n" +
                     // ret
                     "@R14\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@5\n" +
-                    "D=D-A\n" +
+                    "A=D-A\n" +
+                    "D=M\n" +
                     "@R15\n" +
-                    "A=D\n" +
+                    "M=D\n" +
                     //pop shit
                     "@SP\n" +
                     "AM=M-1\n" +
@@ -28,28 +29,34 @@ public class ReturnWriter {
                     "M=D+A\n" +
                     //that
                     "@R14\n" +
-                    "D=A-1\n" +
+                    "D=M\n" +
+                    "@1\n" +
+                    "A=D-A\n" +
+                    "D=M\n" +
                     "@THAT\n" +
                     "M=D\n" +
                     //this
                     "@R14\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@2\n" +
-                    "D=D-A\n" +
+                    "A=D-A\n" +
+                    "D=M\n" +
                     "@THAT\n" +
                     "M=D\n" +
                     //arg
                     "@R14\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@3\n" +
-                    "D=D-A\n" +
+                    "A=D-A\n" +
+                    "D=M\n" +
                     "@ARG\n" +
                     "M=D\n" +
                     //lcl
                     "@R14\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@4\n" +
-                    "D=D-A\n" +
+                    "A=D-A\n" +
+                    "D=M\n" +
                     "@LCL\n" +
                     "M=D\n";
 }
