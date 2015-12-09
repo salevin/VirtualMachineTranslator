@@ -51,8 +51,11 @@ public class CodeWriter {
     }
 
     public void writeIf(String label) {
-        writeCode("@" + label + "\n" +
-                "M;JNE\n");
+        writeCode("@SP\n" +
+                "AM=M-1\n" +
+                "D=M\n" +
+                "@" + label + "\n" +
+                "D;JNE\n");
     }
 
     public void writeCall(String functionName, Integer numArgs) {
