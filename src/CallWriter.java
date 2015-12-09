@@ -12,7 +12,7 @@ public class CallWriter {
     }
 
     static String LCL =
-            "@LCL" +
+            "@LCL\n" +
                     "D=A\n" +
                     "@SP\n" +
                     "AM = M+1\n" +
@@ -20,7 +20,7 @@ public class CallWriter {
                     "M=D\n";
 
     static String ARG =
-            "@ARG" +
+            "@ARG\n" +
                     "D=A\n" +
                     "@SP\n" +
                     "AM = M+1\n" +
@@ -28,7 +28,7 @@ public class CallWriter {
                     "M=D\n";
 
     static String THS =
-            "@THIS" +
+            "@THIS\n" +
                     "D=A\n" +
                     "@SP\n" +
                     "AM = M+1\n" +
@@ -36,7 +36,7 @@ public class CallWriter {
                     "M=D\n";
 
     static String THT =
-            "@THAT" +
+            "@THAT\n" +
                     "D=A\n" +
                     "@SP\n" +
                     "AM = M+1\n" +
