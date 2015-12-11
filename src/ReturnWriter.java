@@ -15,7 +15,7 @@ public class ReturnWriter {
         "D=M\n" +
         "@R15\n" +
         "M=D\n" +
-        //pop shit
+        //pop
         "@SP\n" +
         "AM=M-1\n" +
         "D=M\n" +
@@ -26,7 +26,7 @@ public class ReturnWriter {
         "@ARG\n" +
         "D=M+1\n" +
         "@SP\n" +
-        "M=D+A\n" +
+        "M=D\n" +
         //that
         "@R14\n" +
         "D=M\n" +
@@ -41,7 +41,7 @@ public class ReturnWriter {
         "@2\n" +
         "A=D-A\n" +
         "D=M\n" +
-        "@THAT\n" +
+        "@THIS\n" +
         "M=D\n" +
         //arg
         "@R14\n" +
@@ -62,5 +62,5 @@ public class ReturnWriter {
         //goto
         "@R15\n" +
         "A=M\n" +
-        "A;JMP\n";
+        "0;JMP\n";
 }
