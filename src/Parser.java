@@ -26,11 +26,7 @@ public class Parser {
     }
 
     public CommandType commandType() {
-        String com;
-        if (current.indexOf(" ") != -1)
-            com = current.substring(0, current.indexOf(" "));
-        else 
-            com = current;
+        String com = current.split("\\s+")[0];
 
         switch(com) {
             case "function":
