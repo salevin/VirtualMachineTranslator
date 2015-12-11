@@ -37,8 +37,11 @@ public class CodeWriter {
     }
 
     public void writeInit() {
-        writeCode("SP=256\n" +
-                "call Sys.init\n");
+        writeCode("@256\n" +
+                  "D=A\n" +
+                  "@SP\n" +
+                  "M=D\n");
+        writeCall("Sys.init", 0);
     }
 
     public void writeLabel(String label) {
@@ -59,7 +62,7 @@ public class CodeWriter {
     }
 
     public void writeCall(String functionName, Integer numArgs) {
-        String label = "l" + incr;
+        String label = functionName + "$" + incr;
         writeCode(CallWriter.RET_ADDR(label) +
                   CallWriter.LCL +
                   CallWriter.ARG +

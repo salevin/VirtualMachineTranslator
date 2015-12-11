@@ -58,6 +58,7 @@ public class VirtualMachineTranslator {
             Parser parser = new Parser(file);
             codeWriter.setFileName(basename);
 
+            codeWriter.writeInit();
             while (parser.hasMoreCommands()) {
                 parser.advance();
 
