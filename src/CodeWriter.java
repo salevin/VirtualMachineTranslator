@@ -42,7 +42,7 @@ public class CodeWriter {
     }
 
     public void writeLabel(String label) {
-        writeCode("(" + label + ")\n");
+        writeCode("(" + functionName + "$" + label + ")\n");
     }
 
     public void writeGoTo(String label) {
@@ -81,11 +81,12 @@ public class CodeWriter {
         writeLabel(functionName);
         String accum = "";
         for (int i = 0; i < numLocals; i++) {
-            writeCode("@SP\n" +
-                      "A=M\n" +
-                      "M=0\n" +
+            writeCode("@0\n" +
+                      "D=A\n" +
                       "@SP\n" +
-                      "M=M+1\n");
+                      "AM=M+1\n" +
+                      "A=A-1\n" +
+                      "M=D\n");
         }
     }
 
