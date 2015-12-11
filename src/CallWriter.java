@@ -6,7 +6,7 @@ public class CallWriter {
         return "@" + label + "\n" +
                 "D=A\n" +
                 "@SP\n" +
-                "AM = M+1\n" +
+                "AM=M+1\n" +
                 "A=A-1\n" +
                 "M=D\n";
     }
@@ -15,7 +15,7 @@ public class CallWriter {
             "@LCL\n" +
                     "D=A\n" +
                     "@SP\n" +
-                    "AM = M+1\n" +
+                    "AM=M+1\n" +
                     "A=A-1\n" +
                     "M=D\n";
 
@@ -23,7 +23,7 @@ public class CallWriter {
             "@ARG\n" +
                     "D=A\n" +
                     "@SP\n" +
-                    "AM = M+1\n" +
+                    "AM=M+1\n" +
                     "A=A-1\n" +
                     "M=D\n";
 
@@ -31,7 +31,7 @@ public class CallWriter {
             "@THIS\n" +
                     "D=A\n" +
                     "@SP\n" +
-                    "AM = M+1\n" +
+                    "AM=M+1\n" +
                     "A=A-1\n" +
                     "M=D\n";
 
@@ -39,7 +39,7 @@ public class CallWriter {
             "@THAT\n" +
                     "D=A\n" +
                     "@SP\n" +
-                    "AM = M+1\n" +
+                    "AM=M+1\n" +
                     "A=A-1\n" +
                     "M=D\n";
 

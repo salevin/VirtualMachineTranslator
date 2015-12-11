@@ -46,7 +46,7 @@ public class CodeWriter {
     }
 
     public void writeGoTo(String label) {
-        writeCode("@" + label + "\n" +
+        writeCode("@" + functionName + "$" + label + "\n" +
                 "0;JMP\n");
     }
 
@@ -73,17 +73,19 @@ public class CodeWriter {
 
     public void writeReturn() {
        writeCode(ReturnWriter.RETURN);
-        writeGoTo("R15");
     }
 
     public void writeFunction(String functionName, Integer numLocals) {
+        this.functionName = functionName;
         //problem area
         writeLabel(functionName);
         String accum = "";
         for (int i = 0; i < numLocals; i++) {
             writeCode("@SP\n" +
+                      "A=M\n" +
                       "M=0\n" +
-                      "A=A+1\n");
+                      "@SP\n" +
+                      "M=M+1\n");
         }
     }
 
