@@ -78,8 +78,7 @@ public class CodeWriter {
     public void writeFunction(String functionName, Integer numLocals) {
         this.functionName = functionName;
         //problem area
-        writeLabel(functionName);
-        String accum = "";
+        writeCode("(" + functionName +  ")\n");
         for (int i = 0; i < numLocals; i++) {
             writeCode("@0\n" +
                       "D=A\n" +
