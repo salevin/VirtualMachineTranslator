@@ -13,7 +13,7 @@ public class CallWriter {
 
     static String LCL =
             "@LCL\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@SP\n" +
                     "AM=M+1\n" +
                     "A=A-1\n" +
@@ -21,7 +21,7 @@ public class CallWriter {
 
     static String ARG =
             "@ARG\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@SP\n" +
                     "AM=M+1\n" +
                     "A=A-1\n" +
@@ -29,7 +29,7 @@ public class CallWriter {
 
     static String THS =
             "@THIS\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@SP\n" +
                     "AM=M+1\n" +
                     "A=A-1\n" +
@@ -37,7 +37,7 @@ public class CallWriter {
 
     static String THT =
             "@THAT\n" +
-                    "D=A\n" +
+                    "D=M\n" +
                     "@SP\n" +
                     "AM=M+1\n" +
                     "A=A-1\n" +
@@ -45,13 +45,13 @@ public class CallWriter {
 
     static String MISC(Integer numArgs) {
         return "@SP\n" +
-                "D=A\n" +
+                "D=M\n" +
                 "@" + (numArgs + 5) + "\n" +
                 "D=D-A\n" +
                 "@ARG\n" +
                 "M=D\n" +
                 "@SP\n" +
-                "D=A\n" +
+                "D=M\n" +
                 "@LCL\n" +
                 "M=D\n";
     }
