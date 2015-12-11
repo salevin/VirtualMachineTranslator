@@ -53,7 +53,7 @@ public class Parser {
                 
     public String arg1() {
         if (commandType() == CommandType.C_ARITHMETIC) {
-            return current;
+            return current.split("\\s+")[0];
         }
         else if (commandType() == CommandType.C_RETURN) {
             return null;
