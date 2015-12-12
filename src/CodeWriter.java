@@ -7,7 +7,7 @@ public class CodeWriter {
     private FileWriter asmFile;
     private String fileName = "";
     private String functionName = "";
-    private int incr = 0;
+    private int incr = 1;
 
     public CodeWriter(String basename) {
         try {  // Open the ASM file for writing.
