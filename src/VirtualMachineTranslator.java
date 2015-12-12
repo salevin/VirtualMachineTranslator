@@ -6,27 +6,37 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class VirtualMachineTranslator {
 
-    public static void main(String[] args) {
-        if (args.length != 0)   // Assume file/folder name passed on command line.
-            new VirtualMachineTranslator().translate(args[0]);
-        else {   // Pop-up a JFileChooser.
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    UIManager.put("swing.boldMetal", Boolean.FALSE);
-                    JFileChooser fc = new JFileChooser();
-                    fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
-                    fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-                    fc.setCurrentDirectory(new java.io.File("."));
-                    if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-                        new VirtualMachineTranslator().translate(fc.getSelectedFile().getPath());
-                    else
-                        System.out.println("No file selected; terminating.");
-                }
-            });
-        }
-    }
+public class VirtualMachineTranslator implements Runnable {
+
+	private String path;
+
+	public VirtualMachineTranslator(String path) {
+		this.path = path;
+	}
+
+	// Workaround so that we're not running translate on Swing's event dispatch thread.
+	public void run() {
+		translate(path);
+	}
+	public static void main(String[] args) {
+		if (args.length != 0)   // Assume file/folder name passed on command line.
+			new VirtualMachineTranslator(args[0]).run();
+		else {   // Pop-up a JFileChooser.
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					UIManager.put("swing.boldMetal", Boolean.FALSE);
+					JFileChooser fc = new JFileChooser();
+					fc.setFileFilter(new FileNameExtensionFilter("VM files", "vm"));
+					fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+					if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+						new Thread(new VirtualMachineTranslator(fc.getSelectedFile().getPath())).start();
+					else
+						System.out.println("No file selected; terminating.");
+				}
+			});
+		}
+	}
 
     private void translate(String path) {
         String basename;

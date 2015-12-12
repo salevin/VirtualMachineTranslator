@@ -69,8 +69,9 @@ public class CodeWriter {
                   CallWriter.THS +
                   CallWriter.THT +
                   CallWriter.MISC(numArgs));
-        writeGoTo(functionName);
-        writeLabel(label);
+        writeCode("@" + functionName + "\n" +
+                  "0;JMP\n" +
+                  "(" + label + ")\n");
         incr++;
     }
 

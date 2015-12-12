@@ -81,6 +81,7 @@ public class Parser {
     public void advance() {
         current = next;
         next = getNextCommand();
+        System.out.println(current);
     }
 
     private String getNextCommand() {
