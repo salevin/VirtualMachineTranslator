@@ -62,7 +62,7 @@ public class CodeWriter {
     }
 
     public void writeCall(String functionName, Integer numArgs) {
-        String label = "$$$" + incr;
+        String label = "$$$" + incr++;
         writeCode(CallWriter.RET_ADDR(label) +
                   CallWriter.LCL +
                   CallWriter.ARG +
@@ -72,7 +72,6 @@ public class CodeWriter {
                   "@" + functionName + "\n" +
                   "0;JMP\n" +
                   "(" + label + ")\n");
-        incr++;
     }
 
     public void writeReturn() {
